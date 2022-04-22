@@ -6,3 +6,6 @@ console.log(batteryIndex);
 var numbers = [45, 98, 65, 72, 52, 63];
 var index = numbers.indexOf(52)
 console.log(index);
+
+var index2 = numbers[2]
+console.log(index2);
