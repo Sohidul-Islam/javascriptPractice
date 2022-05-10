@@ -7,7 +7,7 @@ const getDataTitle = () => {
 const getUsers = () => {
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
-        .then(json => console.log(json))
+        .then(json => displayUsers(json))
 }
 const getPost = () => {
     fetch('https://jsonplaceholder.typicode.com/posts')
@@ -15,15 +15,12 @@ const getPost = () => {
         .then(json => console.log(json))
 }
 
-const std = {
-    name: "shufol",
-    id: 123,
-    dept: "CSE"
+const displayUsers = (users) => {
+    const ul = document.getElementById('users')
+    for (const user of users) {
+        console.log(user.name);
+        const li = document.createElement('li')
+        li.innerText = user.name;
+        ul.appendChild(li)
+    }
 }
-
-console.log("Json object ", std);
-
-const StringiFy = JSON.stringify(std);
-console.log("Json to stringify object: ", StringiFy);
-const JsonObject = JSON.parse(StringiFy);
-console.log("Stringify to Json object: ", JsonObject);
