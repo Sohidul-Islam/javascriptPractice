@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post JS</title>
+    <style>
+        #posts {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .post {
+            text-align: center;
+            width: 21%;
+            background-color: #f1faee;
+            color: #1d3557;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 0px 10px 0px;
+            display: inline-block;
+            margin: 1%;
+            padding: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>API TESTING</h1>
+    <button onclick="getDataTitle()" type="button">Load More</button>
+    <button onclick="getUsers()" type="button">Load Users</button>
+    <button onclick="getPosts()" type="button">Load Post</button>
+
+    <section id="posts">
+
+    </section>
+    <script src="./post.js"></script>
+</body>
+
+</html>
