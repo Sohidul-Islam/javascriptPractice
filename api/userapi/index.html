@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User APi</title>
+    <style type="text/css">
+        #users-section {
+            margin: 2%;
+            display: flex;
+            flex-wrap: wrap;
+            /* flex-direction: column; */
+        }
+
+        .userCard {
+            width: 12%;
+            margin: 2%;
+            padding: 2%;
+            background-color: #f8f9fa;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 8px;
+            /* color: #d5bdaf; */
+        }
+
+        .user-infobox {
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="userLoad(5)">Load Users</button>
+    <div id="user-number">
+        <input type="number" id="user-number--input">
+        <button id="user-number--btn">Click</button>
+        <button id="user-clear--btn">Clear</button>
+    </div>
+
+    <section id="users-section">
+    </section>
+    <script src="./buddy.js"></script>
+</body>
+
+</html>
