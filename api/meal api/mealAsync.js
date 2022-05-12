@@ -10,15 +10,18 @@ buttonAddon2.addEventListener('click', () => {
     // console.log(searchBar.value);
 
 })
-const SearchFood = (meal) => {
+const SearchFood = async (meal) => {
     const div = document.getElementById("meals-section");
     while (div.firstChild) {
         div.removeChild(div.firstChild)
     }
     let url = `https://themealdb.com/api/json/v1/1/search.php?s=${meal}`
-    fetch(url)
-        .then(response => response.json())
-        .then(data => displayMeals(data.meals))
+    const res = await fetch(url)
+    const data = await res.json()
+    displayMeals(data.meals)
+    // fetch(url)
+    //     .then(response => response.json())
+    //     .then(data => displayMeals(data.meals))
 }
 
 const displayMeals = (data) => {
@@ -58,12 +61,15 @@ const displayMeals = (data) => {
     }
 }
 
-const loadOneMeal = (mealId) => {
+const loadOneMeal = async (mealId) => {
     console.log(mealId);
     let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
-    fetch(url)
-        .then(response => response.json())
-        .then(data => displayOneMeals(data.meals[0]))
+    const res = await fetch(url);
+    const data = await res.json();
+    displayOneMeals(data.meals[0])
+    // fetch(url)
+    //     .then(response => response.json())
+    //     .then(data => displayOneMeals(data.meals[0]))
 }
 
 const displayOneMeals = (meal) => {
