@@ -3,7 +3,13 @@ const userNumberBtn = document.getElementById("user-number--btn")
 const userClearBtn = document.getElementById("user-clear--btn")
 
 userNumberBtn.addEventListener("click", function () {
-    userLoad(userNumberInput.value)
+    const value = userNumberInput.value;
+    const div = document.getElementById("users-section");
+    if (value > 0 && value <= 5000)
+        userLoad(userNumberInput.value)
+    else {
+        div.innerHTML = `<h3>Not Valid Number, please enter a valid number between 1-5000</h3>`
+    }
 })
 userClearBtn.addEventListener("click", function () {
     const div = document.getElementById("users-section");
