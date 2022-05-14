@@ -83,7 +83,7 @@ const displayOneMeals = (meal) => {
     <p class="card-text">${meal.strInstructions.slice(0, 150) + '...'}</p>
     <h4>Ingredients:</h4>
   </div>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group">
     <li class="list-group-item">${meal.strIngredient1}</li>
     <li class="list-group-item">${meal.strIngredient2}</li>
     <li class="list-group-item">${meal.strIngredient3}</li>
@@ -96,7 +96,7 @@ const displayOneMeals = (meal) => {
     <li class="list-group-item">${meal.strIngredient10}</li>
   </ul>
   <h4>Measurement:</h4>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group">
     <li class="list-group-item">${meal.strMeasure1}</li>
     <li class="list-group-item">${meal.strMeasure2}</li>
     <li class="list-group-item">${meal.strMeasure3}</li>
