@@ -3,7 +3,7 @@ const searchBtn = document.getElementById("searchbtn")
 
 
 searchBtn.addEventListener("click", () => {
-    console.log(searchBox.value)
+    // console.log(searchBox.value)
     if (searchBox.value !== "")
         setlocalStorage(searchBox.value)
     displayItem(getlocalStorage())
@@ -11,25 +11,22 @@ searchBtn.addEventListener("click", () => {
 
 
 const displayItem = (data) => {
-    console.log(typeof data);
+    // console.log(typeof data);
     const ul = document.getElementById("item-list-container")
+    let total = 0;
     ul.innerHTML = ""
-
-    if (typeof data === "string") {
+    for (const obj in data) {
+        console.log("object: ", obj);
         const li = document.createElement("li")
         li.className = `list-group-item`
-        li.innerHTML = `${'Item: ' + obj + ' Qty: ' + data[obj]}`
+        li.innerHTML = `${'Item: ' + '<strong>' + obj + '</strong>' + ' Qty: ' + '<strong>' + data[obj]}</strong>`
+        total += data[obj];
         ul.appendChild(li)
-    } else if (typeof data === "object") {
-        for (const obj in data) {
-            console.log("object: ", obj);
-            const li = document.createElement("li")
-            li.className = `list-group-item`
-            li.innerHTML = `${'Item: ' + obj + ' Qty: ' + data[obj]}`
-            ul.appendChild(li)
-        }
     }
-
+    const li = document.createElement("li")
+    li.className = `list-group-item`
+    li.innerHTML = `${'Total ' + '<strong>Qty </strong>' + '<strong>' + total}</strong>`
+    ul.appendChild(li)
 
 }
 
@@ -41,7 +38,7 @@ const getlocalStorage = () => {
     } else {
         obj = {}
     }
-    console.log("get data: ", obj);
+    // console.log("get data: ", obj);
     return obj;
 
 }
@@ -66,5 +63,5 @@ const checkCart = (data) => {
         return false
     }
 }
-console.log(getlocalStorage())
+// console.log(getlocalStorage())
 displayItem(getlocalStorage());
