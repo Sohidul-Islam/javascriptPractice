@@ -1,11 +1,17 @@
 const searchBox = document.getElementById("searchbox")
 const searchBtn = document.getElementById("searchbtn")
+const placeorder = document.getElementById("clear-btn")
 
 
 searchBtn.addEventListener("click", () => {
     // console.log(searchBox.value)
     if (searchBox.value !== "")
         setlocalStorage(searchBox.value)
+    displayItem(getlocalStorage())
+})
+placeorder.addEventListener("click", () => {
+    // console.log(searchBox.value)
+    localStorage.removeItem("cart");
     displayItem(getlocalStorage())
 })
 
@@ -16,7 +22,7 @@ const displayItem = (data) => {
     let total = 0;
     ul.innerHTML = ""
     for (const obj in data) {
-        console.log("object: ", obj);
+        // console.log("object: ", obj);
         const li = document.createElement("li")
         li.className = `list-group-item`
         li.innerHTML = `${'Item: ' + '<strong>' + obj + '</strong>' + ' Qty: ' + '<strong>' + data[obj]}</strong>`
