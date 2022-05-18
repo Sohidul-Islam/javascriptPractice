@@ -4,17 +4,18 @@ const searchBtn = document.getElementById("searchbtn")
 
 searchBtn.addEventListener("click", () => {
     console.log(searchBox.value)
-    if (checkCart(searchBox.value) === false) {
-        displayItem(searchBox.value)
-    }
+
     setlocalStorage(searchBox.value)
-    display(getlocalStorage())
+
+
+    displayItem(getlocalStorage())
 })
 
 
 const displayItem = (data) => {
     console.log(typeof data);
     const ul = document.getElementById("item-list-container")
+    ul.innerHTML = ""
 
     if (typeof data === "string") {
         const li = document.createElement("li")
@@ -48,7 +49,12 @@ const getlocalStorage = () => {
 }
 const setlocalStorage = (data) => {
     let cart = getlocalStorage()
-    cart[data] = 1 + cart[data];
+    if (checkCart(data)) {
+        cart[data] = 1 + cart[data];
+    } else {
+        cart[data] = 1;
+    }
+
     console.log(cart);
     const setData = JSON.stringify(cart)
     const set = localStorage.setItem('cart', setData)
