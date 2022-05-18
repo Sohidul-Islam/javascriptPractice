@@ -4,10 +4,8 @@ const searchBtn = document.getElementById("searchbtn")
 
 searchBtn.addEventListener("click", () => {
     console.log(searchBox.value)
-
-    setlocalStorage(searchBox.value)
-
-
+    if (searchBox.value !== "")
+        setlocalStorage(searchBox.value)
     displayItem(getlocalStorage())
 })
 
